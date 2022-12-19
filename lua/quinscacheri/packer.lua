@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
     }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -39,10 +40,12 @@ return require('packer').startup(function(use)
         }
     }
     use('tpope/vim-surround')
+
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
     use({
         'sainnhe/everforest',
         as = 'everforest',
@@ -50,12 +53,14 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme everforest')
         end
     })
+
     use {
         'akinsho/bufferline.nvim',
         tag = "v3.*",
         requires = 'nvim-tree/nvim-web-devicons',
         config = function() require("bufferline").setup {} end
     }
+
     use {
         'numToStr/Comment.nvim'
     }
@@ -77,5 +82,11 @@ return require('packer').startup(function(use)
                 })
             end)
         end,
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require("lualine").setup {} end
     }
 end)
