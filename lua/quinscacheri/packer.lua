@@ -47,12 +47,16 @@ return require('packer').startup(function(use)
     }
 
     use({
-        'sainnhe/everforest',
-        as = 'everforest',
-        config = function()
-            vim.cmd('colorscheme everforest')
-        end
+        "neanias/everforest-nvim",
+        as = 'everforest'
     })
+    -- use({
+    --     'sainnhe/everforest',
+    --     as = 'everforest',
+    --     config = function()
+    --         vim.cmd('colorscheme everforest')
+    --     end
+    -- })
 
     use {
         'akinsho/bufferline.nvim',
@@ -88,5 +92,20 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require("lualine").setup {} end
+    }
+
+    use('theprimeagen/harpoon')
+
+    use('mbbill/undotree')
+
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
+
+    use {
+        "norcalli/nvim-colorizer.lua",
+    }
+    use {
+        "isobit/vim-caddyfile"
     }
 end)
