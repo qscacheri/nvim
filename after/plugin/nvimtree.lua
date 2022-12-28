@@ -21,6 +21,9 @@ nvimtree.setup({
                     arrow_closed = "", -- arrow when folder is closed
                     arrow_open = "", -- arrow when folder is open
                 },
+                git = {
+                    untracked = "", -- git untracked file
+                }
             },
         },
     },
@@ -34,9 +37,13 @@ nvimtree.setup({
             },
         },
     },
-    -- 	git = {
-    -- 		ignore = false,
-    -- 	},
+    git = {
+        enable = true,
+        ignore = true,
+    },
+    trash = {
+        require_confirm = false
+    }
 })
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer

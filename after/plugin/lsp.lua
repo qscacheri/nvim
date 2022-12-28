@@ -67,8 +67,6 @@ lsp.on_attach(function(client, bufnr)
     -- vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-require 'lspconfig'.sourcekit.setup {}
-
 lsp.setup()
 
 vim.diagnostic.config({

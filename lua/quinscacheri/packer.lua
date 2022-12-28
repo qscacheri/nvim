@@ -1,5 +1,5 @@
 return require('packer').startup(function(use)
-    -- Packer can manage itself
+
     use 'wbthomason/packer.nvim'
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -50,13 +50,6 @@ return require('packer').startup(function(use)
         "neanias/everforest-nvim",
         as = 'everforest'
     })
-    -- use({
-    --     'sainnhe/everforest',
-    --     as = 'everforest',
-    --     config = function()
-    --         vim.cmd('colorscheme everforest')
-    --     end
-    -- })
 
     use {
         'akinsho/bufferline.nvim',
@@ -108,4 +101,5 @@ return require('packer').startup(function(use)
     use {
         "isobit/vim-caddyfile"
     }
+
 end)

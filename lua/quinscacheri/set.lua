@@ -29,3 +29,9 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+vim.opt.cursorline = true
+
+-- search settings
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
