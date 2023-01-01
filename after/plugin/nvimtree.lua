@@ -46,4 +46,4 @@ nvimtree.setup({
     }
 })
 
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>") -- toggle file explorer
