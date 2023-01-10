@@ -47,6 +47,13 @@ lsp.configure("sumneko_lua", {
     }
 })
 
+lsp.configure('tsserver', {
+    init_options = {
+        preferences = {
+            importModuleSpecifierPreference = 'relative',
+        }
+    }
+})
 -- lsp.on_attach(function(client, bufnr)
 --     local opts = { buffer = bufnr, remap = false }
 --
@@ -72,8 +79,8 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol)
 vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "ln", vim.diagnostic.goto_next)
+vim.keymap.set("n", "lp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename)
@@ -81,12 +88,18 @@ vim.keymap.set("n", "<leader>ll", vim.lsp.buf.format)
 
 lsp.setup()
 
--- vim.diagnostic.config({
---     virtual_text = true,
--- })
+vim.diagnostic.config({
+    virtual_text = true,
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         vim.lsp.buf.format { async = false }
     end
 })
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
