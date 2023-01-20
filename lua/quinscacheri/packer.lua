@@ -45,17 +45,15 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-
     use({
-        "neanias/everforest-nvim",
-        as = 'everforest'
+        'rose-pine/neovim',
+        as = 'rose-pine'
     })
 
     use {
         'akinsho/bufferline.nvim',
         tag = "v3.*",
         requires = 'nvim-tree/nvim-web-devicons',
-        config = function() require("bufferline").setup {} end
     }
 
     use {
