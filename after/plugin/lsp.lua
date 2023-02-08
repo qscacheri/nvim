@@ -54,6 +54,14 @@ lsp.configure('tsserver', {
         }
     }
 })
+
+lsp.configure('groovyls', {
+    filetypes = {
+        "groovy",
+        "nextflow",
+        "nf"
+    },
+})
 -- lsp.on_attach(function(client, bufnr)
 --     local opts = { buffer = bufnr, remap = false }
 --
