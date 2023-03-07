@@ -18,6 +18,9 @@ nvimtree.setup({
         update_cwd  = false,
         ignore_list = {}
     },
+    view = {
+        side = "right",
+    },
     -- change folder arrow icons
     renderer = {
         icons = {
