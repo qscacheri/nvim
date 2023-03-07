@@ -53,7 +53,6 @@ nvimtree.setup({
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>") -- toggle file explorer
 local function open_nvim_tree(data)
-
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
 

@@ -5,7 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'sumneko_lua',
+    'lua_ls',
     'rust_analyzer',
 })
 
@@ -37,7 +37,7 @@ lsp.set_preferences({
     }
 })
 
-lsp.configure("sumneko_lua", {
+lsp.configure("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
@@ -46,6 +46,28 @@ lsp.configure("sumneko_lua", {
         }
     }
 })
+
+lsp.configure("rust_analyzer", {
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
 
 lsp.configure('tsserver', {
     init_options = {
@@ -87,14 +109,16 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol)
 vim.keymap.set("n", "<leader>lo", vim.diagnostic.open_float)
-vim.keymap.set("n", "ln", vim.diagnostic.goto_next)
-vim.keymap.set("n", "lp", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ll", vim.lsp.buf.format)
 
 lsp.setup()
+
+require 'lspconfig'.sourcekit.setup {}
 
 vim.diagnostic.config({
     virtual_text = true,

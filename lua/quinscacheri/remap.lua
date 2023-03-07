@@ -2,9 +2,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>c", ":bd<Cr>") -- close buffer
+keymap.set("n", "<leader>cc", ":bd<Cr>") -- close buffer
 keymap.set("n", "<leader>bn", ":bn<Cr>") -- next buffer
 keymap.set("n", "<leader>bb", ":bp<Cr>") -- previous buffer
+vim.keymap.set("n", "<leader>ca", ":bufdo bwipeout<CR>") -- close all buffers
 
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally

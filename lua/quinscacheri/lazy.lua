@@ -1,6 +1,5 @@
 require("lazy").setup({
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
     {
@@ -50,7 +49,9 @@ require("lazy").setup({
     },
     {
         'rose-pine/neovim',
-        name = 'rose-pine'
+        name = 'rose-pine',
+        lazy = false,
+        priority = 1000
     },
 
     {
@@ -83,16 +84,20 @@ require("lazy").setup({
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = function() require("lualine").setup {} end
+        config = function()
+            require("lualine").setup {
+                theme = "nord"
+            }
+        end
     },
 
     { 'theprimeagen/harpoon' },
 
     { 'mbbill/undotree' },
 
-    {
-        "ray-x/lsp_signature.nvim",
-    },
+    -- {
+    --     "ray-x/lsp_signature.nvim",
+    -- },
 
     {
         "norcalli/nvim-colorizer.lua",
@@ -115,9 +120,6 @@ require("lazy").setup({
         "windwp/nvim-ts-autotag"
     },
     {
-        'arcticicestudio/nord-vim'
-    },
-    {
         "ggandor/leap.nvim",
         dependencies = {
             "tpope/vim-repeat",
@@ -125,6 +127,28 @@ require("lazy").setup({
         config = function()
             require("leap").add_default_mappings()
         end
-    }
+    },
+    { "tpope/vim-fugitive" },
 
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
+            require("treesitter-context").setup {
+                enable = true,
+            }
+        end
+    },
+    { "jparise/vim-graphql" },
+    {
+        'goolord/alpha-nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
+        "shaunsingh/nord.nvim"
+    },
+    {
+        "tpope/vim-unimpaired"
+    },
+    { "windwp/nvim-spectre" },
+    { "Mxrcon/nextflow-vim" },
 })

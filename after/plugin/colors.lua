@@ -1,13 +1,15 @@
-function ColorMyPencils(color)
-    color = color or "nord"
-    vim.cmd.colorscheme(color)
+function RosePine()
+    require("rose-pine").setup({
+        variant = "dawn",
+        dark_variant = 'dawn',
+    })
     vim.o.background = "light"
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-    -- set line number color
-    vim.api.nvim_set_hl(0, "LineNr", { fg = "#5e81ac" })
-
+    vim.cmd.colorscheme("rose-pine")
 end
 
-ColorMyPencils()
+function Nord()
+    vim.cmd.colorscheme("nord")
+end
+
+RosePine()
+-- Nord()
